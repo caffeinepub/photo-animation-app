@@ -1,0 +1,316 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 11,
+  "summary": "An AI-powered text-to-video and image-to-video generation app inspired by Pixverse. Users can enter text or upload an image, choose a style (cartoon, anime, cinematic, 3D effect), select video duration (5s, 10s, 15s), choose video quality (720p, 1080p), add background music, and download or share the generated video. AI improves simple prompts into professional ones. The app is fully free to use without login, with all features unlocked including 1080p. Generated video previews should look realistic.",
+  "architectural_notes": [
+    "App supports two input modes: text-to-video and image-to-video generation",
+    "App should closely mirror Pixverse UI/UX: clean dark theme, prominent generation input, video feed/gallery layout",
+    "App must be fully free with no login required and no credit gating — all features including 1080p are unlocked"
+  ],
+  "known_issues": [
+    "Image-to-Video conversion is failing — the photo is not being transformed into a video"
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-build-a-photo-upload-screen-where-users-can-drag-and-drop-or-click-to-select-an-image-file-from-their-device-show-a-preview-of-the-uploaded-image-before-proceeding-to-template-selection",
+      "title": "Build a photo upload screen where users can drag-and-drop or click to select an image file from their device. Show a preview of the uploaded image before proceeding to template selection.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-template-selection-screen-that-shows-at-least-5-distinct-animation-templates-1-walk-photo-bounces-left-to-right-like-walking-2-dance-photo-shakes-wiggles-rhythmically-3-fly-photo-floats-upward-with-gentle-oscillation-4-spin-photo-rotates-continuously-5-bounce-photo-bounces-up-and-down-each-template-card-must-show-its-name-a-short-description-and-a-looping-preview-icon-or-animation",
+      "title": "Build a template selection screen that shows at least 5 distinct animation templates: (1) Walk — photo bounces left to right like walking, (2) Dance — photo shakes/wiggles rhythmically, (3) Fly — photo floats upward with gentle oscillation, (4) Spin — photo rotates continuously, (5) Bounce — photo bounces up and down. Each template card must show its name, a short description, and a looping preview icon or animation.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-animation-preview-panel-that-applies-the-selected-template-animation-to-the-uploaded-photo-using-css-keyframe-animations-and-or-react-spring-css-transforms-the-photo-must-visibly-animate-according-to-the-chosen-template-walk-dance-fly-spin-bounce-in-a-looping-preview-canvas",
+      "title": "Build an animation preview panel that applies the selected template animation to the uploaded photo using CSS keyframe animations and/or React Spring / CSS transforms. The photo must visibly animate according to the chosen template (walk, dance, fly, spin, bounce) in a looping preview canvas.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-navigation-flow-upload-screen-template-selection-screen-animation-preview-screen-include-a-back-button-on-each-screen-and-a-reset-start-over-button-on-the-preview-screen-to-upload-a-new-photo",
+      "title": "Add a navigation flow: Upload Screen → Template Selection Screen → Animation Preview Screen. Include a Back button on each screen and a Reset/Start Over button on the preview screen to upload a new photo.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-vibrant-playful-visual-theme-across-the-entire-app-use-bright-energetic-colors-warm-oranges-vivid-teals-electric-yellows-with-rounded-ui-elements-bold-typography-and-fun-micro-interactions-hover-scale-effects-on-template-cards-smooth-screen-transitions-the-overall-feel-should-evoke-creativity-and-fun-suited-to-a-photo-animation-app",
+      "title": "Apply a vibrant, playful visual theme across the entire app. Use bright, energetic colors (warm oranges, vivid teals, electric yellows) with rounded UI elements, bold typography, and fun micro-interactions (hover scale effects on template cards, smooth screen transitions). The overall feel should evoke creativity and fun, suited to a photo animation app.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-display-a-hero-banner-image-on-the-app-s-landing-upload-screen-featuring-a-colorful-playful-illustration-of-photos-flying-dancing-and-spinning-in-mid-air-to-convey-the-animation-theme",
+      "title": "Generate and display a hero banner image on the app's landing/upload screen featuring a colorful, playful illustration of photos flying, dancing, and spinning in mid-air to convey the animation theme.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-text-to-video-input-screen-where-users-can-type-a-text-prompt-and-submit-it-to-generate-a-simulated-video-the-screen-must-include-a-text-area-for-input-a-character-counter-and-a-generate-video-button-display-a-loading-processing-state-while-the-video-is-being-generated",
+      "title": "Build a Text-to-Video input screen where users can type a text prompt and submit it to generate a simulated video. The screen must include a text area for input, a character counter, and a 'Generate Video' button. Display a loading/processing state while the video is being generated.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-image-to-video-input-screen-where-users-can-drag-and-drop-or-click-to-upload-an-image-then-submit-it-to-generate-a-simulated-animated-video-from-that-image-show-an-image-preview-before-generation-and-a-loading-state-during-processing",
+      "title": "Build an Image-to-Video input screen where users can drag-and-drop or click to upload an image, then submit it to generate a simulated animated video from that image. Show an image preview before generation and a loading state during processing.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-style-selector-component-used-on-both-the-text-to-video-and-image-to-video-screens-it-must-display-exactly-four-style-options-as-selectable-cards-cartoon-anime-cinematic-and-3d-effect-each-card-shows-the-style-name-and-a-representative-emoji-icon-only-one-style-can-be-selected-at-a-time",
+      "title": "Add a style selector component used on both the Text-to-Video and Image-to-Video screens. It must display exactly four style options as selectable cards: Cartoon, Anime, Cinematic, and 3D Effect. Each card shows the style name and a representative emoji/icon. Only one style can be selected at a time.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-video-duration-selector-on-both-generation-screens-allowing-the-user-to-choose-between-5-seconds-10-seconds-and-15-seconds-display-as-a-segmented-button-group-or-toggle-chips-the-selected-duration-must-be-visually-highlighted",
+      "title": "Add a video duration selector on both generation screens allowing the user to choose between 5 seconds, 10 seconds, and 15 seconds. Display as a segmented button group or toggle chips. The selected duration must be visually highlighted.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-video-quality-selector-on-both-generation-screens-allowing-the-user-to-choose-between-720p-and-1080p-display-as-a-toggle-or-radio-button-group-the-1080p-option-should-be-marked-as-a-pro-feature-and-be-disabled-locked-for-free-users",
+      "title": "Add a video quality selector on both generation screens allowing the user to choose between 720p and 1080p. Display as a toggle or radio-button group. The 1080p option should be marked as a 'Pro' feature and be disabled/locked for free users.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-background-music-toggle-and-selector-on-both-generation-screens-provide-at-least-3-preset-music-track-options-e-g-upbeat-chill-epic-users-can-enable-or-disable-background-music-and-when-enabled-must-select-one-track-show-track-names-with-a-musical-note-icon",
+      "title": "Add a Background Music toggle and selector on both generation screens. Provide at least 3 preset music track options (e.g., Upbeat, Chill, Epic). Users can enable or disable background music, and when enabled must select one track. Show track names with a musical note icon.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-ai-prompt-enhancer-feature-on-the-text-to-video-screen-place-a-enhance-prompt-button-next-to-the-text-input-when-clicked-it-simulates-an-ai-rewrite-of-the-user-s-plain-text-into-a-richer-professional-style-video-generation-prompt-and-updates-the-textarea-with-the-enhanced-version-show-a-brief-loading-indicator-during-enhancement",
+      "title": "Add an AI Prompt Enhancer feature on the Text-to-Video screen. Place a 'Enhance Prompt' button next to the text input. When clicked, it simulates an AI rewrite of the user's plain text into a richer, professional-style video generation prompt and updates the textarea with the enhanced version. Show a brief loading indicator during enhancement.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-video-result-preview-screen-shown-after-generation-completes-it-must-include-a-looping-video-preview-area-use-a-css-animated-placeholder-representing-the-generated-video-a-download-button-that-triggers-a-file-download-to-the-user-s-device-and-a-share-button-that-opens-a-share-sheet-or-copies-a-shareable-link-to-clipboard-both-buttons-must-be-prominently-styled",
+      "title": "Build a video result/preview screen shown after generation completes. It must include: a looping video preview area (use a CSS-animated placeholder representing the generated video), a Download button that triggers a file download to the user's device, and a Share button that opens a share sheet or copies a shareable link to clipboard. Both buttons must be prominently styled.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-freemium-credit-system-ui-store-user-credit-balance-in-the-motoko-backend-default-5-free-credits-each-video-generation-consumes-1-credit-display-the-remaining-credit-count-in-the-app-header-show-an-upgrade-to-pro-prompt-when-credits-reach-0-or-when-a-locked-feature-1080p-is-accessed-pro-users-get-a-badge-and-unlimited-credits-simulated",
+      "title": "Implement a freemium credit system UI. Store user credit balance in the Motoko backend (default 5 free credits). Each video generation consumes 1 credit. Display the remaining credit count in the app header. Show an 'Upgrade to Pro' prompt when credits reach 0 or when a locked feature (1080p) is accessed. Pro users get a badge and unlimited credits (simulated).",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-main-navigation-structure-to-the-app-with-two-primary-tabs-text-to-video-and-image-to-video-replace-or-extend-the-current-upload-template-preview-flow-with-this-new-top-level-navigation-the-existing-photo-animation-flow-can-remain-accessible-or-be-integrated-as-part-of-the-image-to-video-flow",
+      "title": "Add a main navigation structure to the app with two primary tabs: 'Text to Video' and 'Image to Video'. Replace or extend the current upload/template/preview flow with this new top-level navigation. The existing photo animation flow can remain accessible or be integrated as part of the Image-to-Video flow.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-image-to-video-generation-flow-in-imagetovideoscreen-so-that-when-a-user-uploads-a-photo-and-clicks-generate-video-the-generation-process-completes-successfully-and-transitions-to-the-videoresultscreen-with-the-animated-video-preview-the-flow-must-not-fail-or-get-stuck-it-must-handle-the-image-data-correctly-consume-1-credit-and-display-the-result-screen",
+      "title": "Fix the Image-to-Video generation flow in ImageToVideoScreen so that when a user uploads a photo and clicks 'Generate Video', the generation process completes successfully and transitions to the VideoResultScreen with the animated video preview. The flow must not fail or get stuck — it must handle the image data correctly, consume 1 credit, and display the result screen.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-audit-and-fix-the-state-management-in-app-tsx-that-controls-the-transition-from-imagetovideoscreen-to-videoresultscreen-ensure-the-onvideogenerated-callback-is-correctly-wired-the-result-state-is-properly-set-and-the-videoresultscreen-renders-with-the-correct-metadata-style-duration-source-image-info",
+      "title": "Audit and fix the state management in App.tsx that controls the transition from ImageToVideoScreen to VideoResultScreen. Ensure the onVideoGenerated callback is correctly wired, the result state is properly set, and the VideoResultScreen renders with the correct metadata (style, duration, source image info).",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-overall-app-layout-to-closely-mirror-pixverse-s-dark-cinematic-ui-aesthetic-replace-the-current-vibrant-playful-theme-with-a-dark-mode-first-design-using-deep-charcoal-near-black-backgrounds-0a0a0f-111118-subtle-dark-card-surfaces-and-vivid-accent-colors-electric-purple-neon-blue-gradient-highlights-for-ctas-and-active-states-apply-a-clean-professional-editorial-feel-with-tight-spacing-and-modern-sans-serif-typography",
+      "title": "Redesign the overall app layout to closely mirror Pixverse's dark, cinematic UI aesthetic. Replace the current vibrant/playful theme with a dark-mode-first design using deep charcoal/near-black backgrounds (#0a0a0f, #111118), subtle dark card surfaces, and vivid accent colors (electric purple, neon blue, gradient highlights) for CTAs and active states. Apply a clean, professional editorial feel with tight spacing and modern sans-serif typography.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-app-header-to-match-pixverse-s-top-navigation-bar-display-the-app-logo-name-on-the-left-the-two-primary-tabs-text-to-video-and-image-to-video-centered-or-inline-and-the-credit-balance-pro-badge-on-the-right-the-active-tab-should-have-a-visible-underline-or-highlight-indicator-header-must-remain-sticky-at-the-top",
+      "title": "Redesign the app header to match Pixverse's top navigation bar: display the app logo/name on the left, the two primary tabs ('Text to Video' and 'Image to Video') centered or inline, and the credit balance / Pro badge on the right. The active tab should have a visible underline or highlight indicator. Header must remain sticky at the top.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-text-to-video-input-screen-to-match-pixverse-s-generation-page-layout-a-large-prominent-centered-textarea-for-the-prompt-with-placeholder-text-the-enhance-prompt-button-styled-as-a-subtle-icon-button-inside-or-adjacent-to-the-textarea-style-duration-quality-music-selectors-displayed-as-a-horizontal-or-compact-panel-below-the-textarea-and-a-large-full-width-or-centered-generate-video-button-at-the-bottom-the-overall-layout-should-feel-spacious-and-cinematic",
+      "title": "Redesign the Text-to-Video input screen to match Pixverse's generation page layout: a large, prominent centered textarea for the prompt with placeholder text, the 'Enhance Prompt' button styled as a subtle icon button inside or adjacent to the textarea, style/duration/quality/music selectors displayed as a horizontal or compact panel below the textarea, and a large full-width or centered 'Generate Video' button at the bottom. The overall layout should feel spacious and cinematic.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-image-to-video-input-screen-to-match-pixverse-s-image-upload-generation-page-a-large-drag-and-drop-upload-zone-prominently-centered-with-a-dashed-border-and-upload-icon-image-preview-displayed-in-place-after-upload-settings-panel-style-duration-quality-music-below-the-upload-zone-and-a-generate-video-cta-button-match-the-dark-aesthetic-and-spatial-layout-of-pixverse",
+      "title": "Redesign the Image-to-Video input screen to match Pixverse's image upload generation page: a large drag-and-drop upload zone prominently centered with a dashed border and upload icon, image preview displayed in-place after upload, settings panel (style, duration, quality, music) below the upload zone, and a 'Generate Video' CTA button. Match the dark aesthetic and spatial layout of Pixverse.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-styleselector-component-to-use-a-horizontal-scrollable-or-grid-layout-with-dark-thumbnail-cards-each-style-card-cartoon-anime-cinematic-3d-effect-should-display-a-representative-gradient-or-image-background-with-the-style-name-overlaid-the-selected-card-must-be-highlighted-with-a-glowing-border-or-vivid-accent-outline-remove-emoji-only-representations-in-favor-of-styled-visual-cards",
+      "title": "Redesign the StyleSelector component to use a horizontal scrollable or grid layout with dark thumbnail cards. Each style card (Cartoon, Anime, Cinematic, 3D Effect) should display a representative gradient or image background with the style name overlaid. The selected card must be highlighted with a glowing border or vivid accent outline. Remove emoji-only representations in favor of styled visual cards.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-videoresultscreen-to-match-pixverse-s-result-page-a-large-dark-video-preview-area-with-a-subtle-animated-shimmer-gradient-loop-representing-the-generated-video-the-video-metadata-style-duration-source-displayed-compactly-below-or-beside-the-preview-and-download-and-share-buttons-styled-as-prominent-secondary-action-buttons-with-icons-add-a-create-new-or-generate-again-button",
+      "title": "Redesign the VideoResultScreen to match Pixverse's result page: a large dark video preview area with a subtle animated shimmer/gradient loop representing the generated video, the video metadata (style, duration, source) displayed compactly below or beside the preview, and Download and Share buttons styled as prominent secondary action buttons with icons. Add a 'Create New' or 'Generate Again' button.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-app-s-global-css-and-tailwind-configuration-to-support-the-new-pixverse-inspired-dark-theme-define-new-css-custom-properties-for-dark-background-layers-surface-cards-accent-gradient-colors-and-text-contrast-levels-remove-or-override-the-current-oklch-warm-color-tokens-ensure-all-existing-components-inherit-the-new-color-tokens-without-needing-individual-overrides",
+      "title": "Update the app's global CSS and Tailwind configuration to support the new Pixverse-inspired dark theme. Define new CSS custom properties for dark background layers, surface cards, accent gradient colors, and text contrast levels. Remove or override the current OKLCH warm-color tokens. Ensure all existing components inherit the new color tokens without needing individual overrides.",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-redesign-the-video-preview-area-in-videoresultscreen-specifically-the-animated-placeholder-shimmer-element-at-xpath-html-1-body-1-div-1-div-1-main-1-div-1-div-2-div-1-and-its-heading-at-html-1-body-1-div-1-div-1-main-1-div-1-div-2-h1-1-to-look-realistic-and-cinematic-replace-the-current-simple-shimmer-gradient-placeholder-with-a-rich-film-quality-animated-preview-that-includes-a-deep-black-letterboxed-frame-with-subtle-film-grain-texture-overlay-a-multi-layered-animated-gradient-simulating-real-video-color-grading-warm-highlights-cool-shadows-a-realistic-scan-line-or-light-leak-animation-pass-a-subtle-camera-focus-pulse-effect-and-a-hd-or-resolution-badge-in-the-corner-the-heading-text-above-the-preview-should-read-your-video-is-ready-with-a-cinematic-glow-effect",
+      "title": "Redesign the video preview area in VideoResultScreen (specifically the animated placeholder/shimmer element at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1] and its heading at /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/h1[1]) to look realistic and cinematic. Replace the current simple shimmer/gradient placeholder with a rich, film-quality animated preview that includes: a deep black letterboxed frame with subtle film grain texture overlay, a multi-layered animated gradient simulating real video color grading (warm highlights, cool shadows), a realistic scan-line or light-leak animation pass, a subtle camera-focus pulse effect, and a 'HD' or resolution badge in the corner. The heading text above the preview should read 'Your Video is Ready' with a cinematic glow effect.",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-css-keyframe-animations-in-the-global-stylesheet-to-support-the-realistic-video-preview-effect-define-a-filmgrain-animation-that-randomly-shifts-a-noise-like-background-a-colorgrade-animation-that-smoothly-transitions-through-cinematic-color-tones-teal-shadows-warm-highlights-a-scanline-animation-that-moves-a-semi-transparent-horizontal-bar-top-to-bottom-and-a-focuspulse-animation-that-subtly-scales-the-preview-between-1-0-and-1-003-to-simulate-camera-breathing-register-these-animations-in-tailwind-config-js-so-they-can-be-applied-as-tailwind-utility-classes",
+      "title": "Add CSS keyframe animations in the global stylesheet to support the realistic video preview effect: define a 'filmGrain' animation that randomly shifts a noise-like background, a 'colorGrade' animation that smoothly transitions through cinematic color tones (teal shadows → warm highlights), a 'scanLine' animation that moves a semi-transparent horizontal bar top to bottom, and a 'focusPulse' animation that subtly scales the preview between 1.0 and 1.003 to simulate camera breathing. Register these animations in tailwind.config.js so they can be applied as Tailwind utility classes.",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-6",
+      "summary": "Text-to-Video: user types text, AI converts it into a video",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Image-to-Video: user uploads an image, AI converts it into a moving video",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Style selection for generated videos: cartoon, anime, cinematic, 3D effect",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Video duration selection: 5 sec, 10 sec, 15 sec",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Video quality selection: 720p, 1080p",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Background music add option for generated videos",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "AI prompt enhancer: converts simple user text into a professional video generation prompt",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Video download to device gallery and social media sharing",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Freemium model: free users get limited credits, paid users get more features",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Rebuild app UI/UX to closely match Pixverse-style design and experience",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Remove login requirement — app fully free to use without authentication",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Remove credit system — all features including 1080p unlocked for free",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Make generated video previews look realistic (realistic visual quality in the video preview area)",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Photo Animation App",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

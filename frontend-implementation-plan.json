@@ -1,0 +1,48 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Make video preview look realistic with cinematic quality",
+  "requirements": [
+    {
+      "id": "REQ-27",
+      "summary": "Redesign the video preview area in VideoResultScreen to display a realistic, cinematic animated placeholder with film grain, color grading, scan-line effects, focus pulse, and letterbox framing, plus update the heading to 'Your Video is Ready' with a cinematic glow",
+      "acceptanceCriteria": [
+        "The video preview area at the specified XPath shows a visually rich animated placeholder that resembles a real video playing (not a plain shimmer box)",
+        "The preview includes at least: a dark letterbox frame, animated color-grading gradient layers, film grain or scan-line texture, and a camera-focus pulse",
+        "The heading above the preview reads 'Your Video is Ready' and has a visible cinematic glow or text-shadow effect",
+        "All animations loop smoothly without flickering",
+        "The preview fills its container and maintains a 16:9 aspect ratio",
+        "The overall impression is of a high-quality, professionally generated video"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/VideoResultScreen.tsx",
+          "operation": "modify",
+          "description": "Replace the current animated placeholder div (at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/div[1]) with a multi-layered cinematic video preview structure that includes: a container with 16:9 aspect ratio and black letterbox bars (top/bottom padding), a deep black base layer, a film grain texture overlay animated with the filmGrain animation, multiple gradient layers animated with colorGrade to simulate cinematic color toning (teal shadows to warm highlights), a scan-line effect layer animated with scanLine moving top to bottom, and a subtle focusPulse animation on the entire preview to simulate camera breathing. Update the heading element (at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[2]/h1[1]) to display 'Your Video is Ready' with a cinematic glow effect using text-shadow and gradient text. Add an 'HD' or resolution badge positioned in the top-right corner of the preview area. Ensure all layers use absolute positioning within a relative container and maintain proper z-index stacking. Apply Tailwind utility classes for the filmGrain, colorGrade, scanLine, and focusPulse animations (defined in REQ-28). Do not modify the download/share/generate-again buttons or metadata sections below the preview."
+        }
+      ]
+    },
+    {
+      "id": "REQ-28",
+      "summary": "Add CSS keyframe animations (filmGrain, colorGrade, scanLine, focusPulse) to support the realistic video preview effect and register them in Tailwind config",
+      "acceptanceCriteria": [
+        "filmGrain, colorGrade, scanLine, and focusPulse keyframe animations are defined in index.css",
+        "Animations are registered in tailwind.config.js under theme.extend.keyframes and theme.extend.animation",
+        "Each animation loops indefinitely and runs at an appropriate speed (scanLine: 3s, colorGrade: 6s, focusPulse: 4s, filmGrain: 0.5s)",
+        "No existing animations are removed or broken"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add four new @keyframes definitions to the existing stylesheet: (1) 'filmGrain' that randomly shifts a noise-like background-position to simulate film grain texture (0%: 0% 0%, 10%: -5% -10%, 20%: -15% 5%, etc., with varied positions throughout to create organic noise movement); (2) 'colorGrade' that transitions background gradients through cinematic color tones starting from deep teal/cyan shadows (0%), moving through neutral midtones (50%), to warm orange/amber highlights (100%) using linear-gradient stops; (3) 'scanLine' that moves a semi-transparent horizontal bar from top: -10% at 0% to top: 110% at 100% to simulate a scanning light pass; (4) 'focusPulse' that subtly scales an element from transform: scale(1.0) at 0% to scale(1.003) at 50% and back to scale(1.0) at 100% to mimic camera breathing/focus shift. Place these definitions in the global styles section, ensuring they do not conflict with existing keyframes like shimmer or videoScan."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Register the four new animations in the Tailwind configuration by extending theme.extend.keyframes with entries for 'filmGrain', 'colorGrade', 'scanLine', and 'focusPulse' (matching the @keyframes definitions added to index.css). Then add corresponding entries to theme.extend.animation: 'filmGrain': 'filmGrain 0.5s steps(10) infinite', 'colorGrade': 'colorGrade 6s ease-in-out infinite', 'scanLine': 'scanLine 3s linear infinite', 'focusPulse': 'focusPulse 4s ease-in-out infinite'. Ensure existing animations like shimmer and pulse-glow remain intact and functional."
+        }
+      ]
+    }
+  ]
+}
